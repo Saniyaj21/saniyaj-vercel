@@ -1,38 +1,5 @@
 {% extends 'main.html' %}
 
 {% block body %}
-
-{% for list in q_list %}
-{% if request.user == list.host %}
-<div class="linkContainer">
-    <h2 class="linkTitle">{{list}}</h2>
-    <h4 class="linkAddr">{{list.link}}</h4>
-    <h4 class="linkAddr">{{list.desc}}</h4>
-    <a href="{{list.link}}" target="_blank" class="btn btnContainer"><i class="fa-brands fa-internet-explorer"></i> Visit Link</a>
-    <a href="{% url 'edit' list.id %}" class="btn btnContainer"><i class="fa-solid fa-pen-to-square"></i> Edit Link</a>
-    <a href="{% url 'delete' list.id %}" class="btn btnContainer"><i class="fa-solid fa-trash"></i> Delete</a>
-</div>
-{% endif %}
-    {% endfor %}
-    <hr>
-
-
-<h2>Your links :</h2>
-{% for link in links  %}
-
-{% if request.user == link.host %}
-
-<div class="linkContainer">
-    <h2 class="linkTitle">{{link}}</h2>
-    <h4 class="linkAddr">{{link.link}}</h4>
-    <h4 class="linkAddr">{{link.desc}}</h4>
-    <a href="{{link.link}}" target="_blank" class="btn btnContainer"><i class="fa-brands fa-internet-explorer"></i> Visit Link</a>
-    <a href="{% url 'edit' link.id %}" class="btn btnContainer"><i class="fa-solid fa-pen-to-square"></i> Edit Link</a>
-    <a href="{% url 'delete' link.id %}" class="btn btnContainer"><i class="fa-solid fa-trash"></i> Delete</a>
-</div>
-{% endif %}
-{% endfor %}
-
-
-</section>
+  home
 {% endblock %}
