@@ -17,30 +17,25 @@
               <a class="nav-link active" aria-current="page" href="/">Show Links</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'createlink' %}">Save Link</a>
+              <a class="nav-link" href="">Save Link</a>
             </li>
           </ul>
-          <form class="d-flex" role="search" action=""  method="GET">
+          <form class="d-flex" role="search" action="" method="GET">
             {% csrf_token %}
             <input class="form-control me-2" name="q" id="SearchLink" type="search" placeholder="Search" aria-label="Search" />
-            
+
             <button class="btn btn-outline-success" type="submit">Search</button>
-            
+
             {% if request.user.is_authenticated %}
-            <a href="{% url 'logout' %}">
-                <button class="btn btn-outline-success mx-2" type="submit">Log Out</button>
-            </a>
+              <a href=""><button class="btn btn-outline-success mx-2" type="submit">Log Out</button></a>
             {% else %}
-            <a href="{% url 'login' %}">
-                <button class="btn btn-outline-success mx-2" type="submit">Log in</button>
-            </a>
-            {%endif %}
-            
+              <a href=""><button class="btn btn-outline-success mx-2" type="submit">Log in</button></a>
+            {% endif %}
           </form>
         </div>
       </div>
     </nav>
-    <h3>{{user.username|upper}}</h3>
+    <h3>{{ user.username|upper }}</h3>
     {% block body %}
 
     {% endblock %}
