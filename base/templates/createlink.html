@@ -1,4 +1,54 @@
 {% extends 'main.html' %}
 {% block body %}
-  create link page
+  <style>
+    .create-form {
+      display: flex;
+      flex-direction: column;
+    }
+    .create-input {
+      width: 80%;
+      height: 50px;
+      font-size: large;
+      padding-left: 10px;
+      color: #ff5722;
+      margin: 10px;
+      border-radius: 10px;
+      border: 2px solid #ff5722;
+      outline: 0px;
+    }
+    ::placeholder {
+      padding-left: 10px;
+      font-size: large;
+    }
+    .create-btn {
+      background-color: #ff5722;
+      color: white;
+      font-size: 23px;
+      font-family: 'Inter', sans-serif !important;
+      cursor: pointer;
+    }
+    .create-back {
+      width: 190px;
+      margin: auto;
+      display: block;
+      margin-top: 50px;
+    }
+    #create-btn {
+      width: 200px;
+      border: 2px solid #ff5722;
+      border-radius: 5px;
+      font-size: medium;
+      height: 30px;
+      cursor: pointer;
+    }
+  </style>
+
+  <form action="" method="POST" class="create-form">
+    {% csrf_token %}
+    <input class="create-input" type="text" name="title" placeholder="Title" />
+    <input class="create-input" type="text" name="link" placeholder="Link" />
+    <input class="create-input" type="text" name="desc" placeholder="Description" />
+    <input class="create-input create-btn" type="submit" value="Save" />
+  </form>
+  <a class="create-back" href="{{ request.META.HTTP_REFERER }}"><button class="create-btn" id="create-btn">Go Back</button></a>
 {% endblock %}

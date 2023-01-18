@@ -1,4 +1,148 @@
 {% extends 'main.html' %}
 {% block body %}
-  login page
+
+<style>
+    .create-form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-width: 100%;
+    }
+  .create-input{
+    padding: 5px;
+    max-width: 100%;
+    height: 50px;
+    font-size: large;
+    padding-left: 10px;
+    color: #FF5722;
+    margin: 10px;
+    border-radius: 10px;
+    border: 2px solid  #FF5722;
+    outline: 0px;
+    
+  }
+  ::placeholder{
+    padding-left: 10px;
+    font-size: large;
+  }
+  .create-btn{
+    background-color: #FF5722;
+    color: white;
+    font-size: 23px;
+    font-family: 'Inter', sans-serif !important;
+    cursor: pointer;
+  }
+  .btn-login{
+    max-width: 150px !important;
+  }
+  #create-btn{
+    width: 200px;
+    border: 2px solid  #FF5722;
+    border-radius: 5px;
+    font-size: medium;
+    height: 35px;
+    cursor: pointer;
+    
+  }
+  #form-input1{
+    max-width: 400px;
+    height: 50px;
+    font-size: large;
+    padding-left: 10px;
+    color: #FF5722;
+    margin: 10px;
+    border-radius: 10px;
+    border: 2px solid  #FF5722;
+    outline: 0px;
+    
+  }
+  #id_password1{
+    max-width: 400px;
+    height: 50px;
+    font-size: large;
+    padding-left: 10px;
+    color: #FF5722;
+    margin: 10px;
+    border-radius: 10px;
+    border: 2px solid  #FF5722;
+    outline: 0px;
+    
+  }
+  #id_password2{
+    max-width: 400px;
+    height: 50px;
+    font-size: large;
+    padding-left: 10px;
+    color: #FF5722;
+    margin: 10px;
+    border-radius: 10px;
+    border: 2px solid  #FF5722;
+    outline: 0px;
+    
+  }
+  .login-box{
+    width: 600px;
+  }
+  .mb-3{
+    margin-bottom: 10px;
+  }
+  
+  </style>
+  
+  
+  
+  <div class="login-box">
+      
+      {% if page == 'login'%}
+      
+  <form method="POST" action ="" class="create-form">
+      {% csrf_token %}
+  
+      <div class="mb-3">
+        <label for="exampleInputEmail1"  class="form-label">Username</label>
+        <input class="create-input" type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        
+      </div>
+      <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input class="create-input" type="password" name="password" class="form-control" id="exampleInputPassword1">
+      </div>
+     
+      <button  type="submit" id="create-btn" class="create-btn  create-input">Login</button>
+    </form>
+    <p class="text-center">Haven't sign up yet? 
+      <a class="text-success" href="{% url 'register' %}">Register Now</a></p>
+    {% else %}
+      
+    
+    
+    <div class="form-box" >
+       <form method="POST" action ="" class="create-form" >
+          {% csrf_token %}
+          <label for="form-imput1" class="form-label">UserName</label>
+          {{form.username}}
+          <label for="id_password1" class="form-label">Password</label>
+          {{form.password1}}
+          <label for="id_password2" class="form-label">Confirm Password</label>
+          {{form.password2}}
+      
+          <input id="create-btn" type="submit" class="create-btn  create-input " value="Register">
+       </form> 
+          
+  
+       <p class="text-center">Already Sign Up? 
+          <a class="text-success" href="{% url 'login' %}">Log In Here</a></p>
+  
+      
+     </div>
+  
+  
+  
+  
+    
+    
+  </div>
+  {% endif %}
+  
 {% endblock %}

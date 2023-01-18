@@ -1,4 +1,40 @@
 {% extends 'main.html' %}
+
 {% block body %}
-  edit page
+  <style>
+    .create-form {
+      display: flex;
+      flex-direction: column;
+    }
+    .create-input {
+      width: 80%;
+      height: 50px;
+      font-size: large;
+      padding-left: 10px;
+      color: #ff5722;
+      margin: 10px;
+      border-radius: 10px;
+      border: 2px solid #ff5722;
+      outline: 0px;
+    }
+    ::placeholder {
+      padding-left: 10px;
+      font-size: large;
+    }
+    .create-btn {
+      background-color: #ff5722;
+      color: white;
+      font-size: 23px;
+      font-family: 'Inter', sans-serif !important;
+      cursor: pointer;
+    }
+  </style>
+
+  <form class="create-form" action="" method="POST">
+    {% csrf_token %}
+    <input class="create-input" type="text" name="title" placeholder="title" value="{{ title }}" />
+    <input class="create-input" type="text" name="desc" placeholder="desc" value="{{ desc }}" />
+    <input class="create-input" type="text" name="link" placeholder="link" value="{{ link }}" />
+    <input class="create-input create-btn" type="submit" value="Save" />
+  </form>
 {% endblock %}
