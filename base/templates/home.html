@@ -1,5 +1,22 @@
 {% extends 'main.html' %}
 
 {% block body %}
-  home
+  <form action="" method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Name</label>
+      <input type="text" class="form-control" name="name" id="name" aria-describedby="emailHelp" />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">College</label>
+      <input type="text" class="form-control" name="college" id="college" aria-describedby="emailHelp" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  {% for list in allList %}
+    <div>{{ list.name }}
+      {{ list.college }}</div>
+  {% endfor %}
 {% endblock %}
