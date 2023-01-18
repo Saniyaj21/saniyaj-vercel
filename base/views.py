@@ -7,7 +7,7 @@ def home(request):
     if request.method == "POST":
         name = request.POST['name']
         college = request.POST['college']
-        print(name,college)
+        # print(name,college)
 
         newList = Linklist.objects.create(name=name,college=college)
 
